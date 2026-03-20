@@ -1,0 +1,55 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 600px; /* Hero 區高度 */
+  overflow: hidden;
+}
+
+.hero-img {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 33.33%;
+  object-fit: cover;
+}
+
+.hero-img.left {
+  left: 0;
+}
+
+.hero-img.center {
+  left: 33.33%;
+}
+
+.hero-img.right {
+  left: 66.66%;
+}
+
+/* 動畫 */
+
+.hero-img.left {
+  transform: translateX(-100%);
+  animation: slideInLeft 1s ease-out forwards;
+}
+
+.hero-img.center {
+  transform: translateY(-100%);
+  animation: slideInTop 1s ease-out 0.2s forwards;
+}
+
+.hero-img.right {
+  transform: translateX(100%);
+  animation: slideInRight 1s ease-out 0.4s forwards;
+}
+
+@keyframes slideInLeft {
+  to { transform: translateX(0); }
+}
+
+@keyframes slideInTop {
+  to { transform: translateY(0); }
+}
+
+@keyframes slideInRight {
+  to { transform: translateX(0); }
+}

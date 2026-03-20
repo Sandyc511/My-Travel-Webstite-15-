@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Travel Website-France</title>
+  <link rel="stylesheet" href="./france.css">
+</head>
+<body>
+
+
+
+<!-- 🔝 Header -->
+<header class="header">
+  <h1>LOVE IS ON</h1>
+  <p>
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad animi impedit assumenda eligendi dolore blanditiis, expedita debitis, laudantium quisquam nesciunt quasi doloribus nostrum, error totam consectetur dolorem rem neque. Autem!
+  </p>
+  </div>
+</header>
+
+<!-- 🌄 Hero -->
+<section class="hero">
+  <img src="./photo/Paris-1.jpeg" alt="France">
+
+  <!-- ===== Navbar ===== -->
+  <nav class="navbar">
+    <div class="container navbar-flex">
+      <div class="logo-title">
+        <img src="././photo/logo.png " alt="Logo" class="logo">
+        <span class="site-title">My-Travel-15</span>
+      </div>
+      <ul class="main-menu-list">
+        <li><a href="../travel.html">Home</a></li>
+        <li><a href="./japan.html">Janpan</a></li>
+        <li><a href="./italy.html">Italy</a></li>
+        <li><a href="./france.html">France</a></li>
+        <li><a href="./egypt.html">Egypt</a></li>
+      </ul>
+      <div class="mobile-menu-toggle">&#9776;</div>
+    </div>
+    <div class="mobile-menu-items">
+      <ul class="mobile-menu-list">
+        <li><a href="#home" onclick="closeMenu()">Home</a></li>
+          <li><a href="#japan" onclick="closeMenu()">Japan</a></li>
+          <li><a href="#italy" onclick="closeMenu()">Italy</a></li>
+          <li><a href="#france" onclick="closeMenu()">France</a></li>
+          <li><a href="#egypt" onclick="closeMenu()">Egypt</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="hero-text">
+    <h2>法國婚禮</h2>
+    <p>浪漫歐洲婚禮體驗</p>
+  </div>
+</section>
+<section class="sections-grid">
+<section class="section">
+    <div class="img">
+      <img src="./photo/Paris-2.jpeg" alt="Japan">
+    </div>
+
+    <div class="text">
+      <h2>History</h2>
+      <p>秋季如畫的自然風光，初雪落成的靜謐時刻，日式婚禮充滿細膩與傳統的美感。</p>
+    </div>
+  </section>
+
+    <section class="section">
+    <div class="img">
+      <img src="./photo/Paris-2.jpeg" alt="Japan">
+    </div>
+    <div class="text">
+      <h2>Attractive</h2>
+      <p>秋季如畫的自然風光，初雪落成的靜謐時刻，日式婚禮充滿細膩與傳統的美感。</p>
+    </div>
+  </section>
+
+<section class="section reverse">
+    <div class="img">
+      <img src="./photo/Paris.jpeg" alt="Bali">
+    </div>
+    <div class="text">
+      <h2>Food</h2>
+      <p>在海天一色的夢幻場景中，打造屬於你們的浪漫婚禮，留下難忘回憶。</p>
+       </div>
+    </section>
+
+<section class="section reverse">
+    <div class="img">
+      <img src="./photo/Paris.jpeg" alt="Bali">
+    </div>
+    <div class="text">
+      <h2>Transportation</h2>
+      <p>在海天一色的夢幻場景中，打造屬於你們的浪漫婚禮，留下難忘回憶。</p>
+    </div>
+  </section>
+
+<!-- 🔚 Footer -->
+<footer class="footer">
+  <p>© 2026 My Travel Website</p>
+</footer>
+
+<script>
+function goBack() {
+  if (history.length > 1) {
+    window.history.back();
+  } else {
+    window.location.href = "index.html";
+  }
+}
+
+function toggleMenu() {
+  document.getElementById("menu").classList.toggle("active");
+}
+
+document.addEventListener("click", function(e) {
+  const menu = document.getElementById("mobile-menu-items");
+  const btn = document.querySelector("button[onclick='toggleMenu()']");
+
+  if (!menu.contains(e.target) && !btn.contains(e.target)) {
+    menu.classList.remove("active");
+  }
+});
+</script>
+</body>
+</html>
