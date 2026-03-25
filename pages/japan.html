@@ -1,10 +1,9 @@
-
-<!DOCTYPE html>
+<h!DOCTYPE html>
 <html lang="zh-HK">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Japan Tour Detail</title>
+  <title>My-Travel-Website-15</title>
    <link rel="stylesheet" href="./japan.css" />
 
 </head>
@@ -13,29 +12,39 @@
   <!-- ===== Navbar ===== -->
   <nav class="navbar">
     <div class="container navbar-flex">
+
       <div class="logo-title">
         <img src="./photo/logo.png" alt="Logo" class="logo">
         <span class="site-title">My-Travel-15</span>
       </div>
-      <ul class="main-menu-list">
+      <!-- destop menu -->
+      <ul 
+      class="main-menu-list">
         <li><a href="../travel.html">Home</a></li>
-        <li><a href="./japan.html">Janpan</a></li>
+        <li><a href="./japan.html">Japan</a></li>
         <li><a href="./italy.html">Italy</a></li>
         <li><a href="./france.html">France</a></li>
         <li><a href="./egypt.html">Egypt</a></li>
       </ul>
-      <div class="mobile-menu-toggle">&#9776;</div>
-    </div>
-    <div class="mobile-menu-items">
-      <ul class="mobile-menu-list">
-        <li><a href="#home" onclick="closeMenu()">Home</a></li>
-          <li><a href="#japan" onclick="closeMenu()">Japan</a></li>
-          <li><a href="#italy" onclick="closeMenu()">Italy</a></li>
-          <li><a href="#france" onclick="closeMenu()">France</a></li>
-          <li><a href="#egypt" onclick="closeMenu()">Egypt</a></li>
-      </ul>
+      <!-- mobile btn -->
+      <div class="mobile-menu-toggle" id ="menuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
   </nav>
+    <div class="mobile-menu-items" id="mobileMenu">
+
+      <ul 
+      class="mobile-menu-list">
+      <li><a href="../travel.html">Home</a></li>
+      <li><a href="./japan.html">Japan</a></li>
+      <li><a href="./italy.html">Italy</a></li>
+      <li><a href="./france.html">France</a></li>
+      <li><a href="./egypt.html">Egypt</a></li>
+      </ul>
+    </div>
+  
 
   <!-- ===== Hero ===== -->
   <section class="hero" style="background-image: url('./photo/travel-world-monument-concept_1097408-211.jpg')">
@@ -60,44 +69,58 @@
             <img src="./photo/Italy food_3.jpg" alt="Food">
         </div>
       <h2>Attractions</h2>
-      <p>介紹觀光景點特色與必去亮點，例如名勝、樂園、博物館。</p>
+      <p>介紹觀光景點特色與必去亮點，例如名勝、樂園、博物館。Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur beatae praesentium rerum repellendus. Officia nemo animi maiores incidunt! Error quod dicta delectus obcaecati odio iusto nesciunt sit odit vel dolorem?</p>
     </div>
     <div class="card">
            <div class="card-image">
             <img src="./photo/Italy food_2.jpg" alt="Food">
         </div>
       <h2>Food</h2>
-      <p>介紹當地美食、餐廳推薦、特色小吃與文化。</p>
+      <p>介紹當地美食、餐廳推薦、特色小吃與文化。Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut in eos facere voluptas atque quam, harum nam id asperiores officia vitae perferendis quibusdam nulla neque consectetur itaque placeat exercitationem sequi!</p>
     </div>
     <div class="card">
            <div class="card-image">
             <img src="./photo/Italy food_3.jpg" alt="Food">
         </div>
       <h2>Transportation</h2>
-      <p>介紹交通方式，如火車、巴士、機場接駁與票價資訊。</p>
+      <p>介紹交通方式，如火車、巴士、機場接駁與票價資訊。Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ratione ex consequatur accusamus, ad, facere cumque iure reiciendis totam rerum sapiente, nulla provident obcaecati voluptates quod vero explicabo fugit! Laborum!</p>
     </div>
   </section>
+
 <script>
-function goBack() {
-  if (history.length > 1) {
-    window.history.back();
-  } else {
-    window.location.href = "index.html";
-  }
-}
-
-function toggleMenu() {
-  document.getElementById("menu").classList.toggle("active");
-}
-
-document.addEventListener("click", function(e) {
-  const menu = document.getElementById("menu");
-  const btn = document.querySelector("button[onclick='toggleMenu()']");
-
-  if (!menu.contains(e.target) && !btn.contains(e.target)) {
-    menu.classList.remove("active");
-  }
+/* Navbar 滾動 */
+window.addEventListener("scroll", () => {
+const nav = document.querySelector(".navbar");
+nav.classList.toggle("scrolled", window.scrollY > 50);
 });
+
+/* Menu */
+const toggle = document.querySelector(".mobile-menu-toggle");
+const menu = document.querySelector(".mobile-menu-items");
+
+toggle.addEventListener("click", () => {
+menu.classList.toggle("active");
+});
+
+/* Scroll 動畫 */
+const cards = document.querySelectorAll("[data-animate]");
+
+const observer = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+const delay = entry.target.dataset.delay;
+
+  setTimeout(() => {
+    entry.target.classList.add("show");
+  }, delay * 150);
+
+  observer.unobserve(entry.target);
+}
+
+});
+}, { threshold: 0.2 });
+
+cards.forEach(card => observer.observe(card));
 </script>
 </body>
 </html>
