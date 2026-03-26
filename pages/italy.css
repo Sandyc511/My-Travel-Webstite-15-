@@ -1,74 +1,119 @@
-/* ===== Reset ===== */
+/* Reset */
 * {
-  margin: 0 ;
-  padding: 0 ;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
+/* Body */
 body {
-  font-family: Arial, sans-serif;
+  font-family: Arial;
+  background: #f0f0f0;
 }
+.logo {
+  height: 40px;
+  width: auto;
+}
+.logo-title {
+  height: 50px;
+  width: auto;
 
-/* ===== 通用 Container ===== */
-.container {
+}
+/* Navbar */
+.navbar {
+  position: fixed;
   width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 15px;
+  height: 70px;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  z-index: 100;
 }
 
-/* ===== Header ===== */
-.header {
-  background: linear-gradient(135deg,rgba(172, 205, 236, 0.8));
-  color: #000;
-  color: lightblue;
-  padding: 20px;
-  text-align: center;
-  padding: 20px;
-  font-size: 24px;
-  margin-top: 0px;
-  position: relative;
-  z-index: 1;
+.navbar-flex {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
 }
-.header h1 {
-  font-size :36px;
-  font-weight: bold;
-  color: #ffd700;
-  text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
-  animation: glow 3s ease-in-out infinite alternate;
+
+/* Menu */
+.main-menu-list {
+  display: flex;
+  gap: 20px;
+  list-style: none;
 }
-.header p {
-  font-size : 20px;
-  color: coral;
-}
-@keyframes glow {
-  from { 
-    text-shadow: 0 0 20px #ffd700, 0 0 30px #ffd700;
-  }
-  to { 
-    text-shadow: 0 0 20px #ff6b6b, 0 0 40px #ff6b6b;
-  }
-}
-.header a { 
-  margin: 0 10px;
+
+.main-menu-list a {
+  color: white;
   text-decoration: none;
-  color: #333;
 }
 
-/* ===== Hero ===== */
+/* Mobile btn */
+.mobile-menu-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 25px;
+  background: white;
+  margin: 5px;
+}
+
+/* Mobile menu */
+.mobile-menu-items {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 70%;
+  height: 100%;
+  background: #003366;
+  transform: translateX(100%);
+  transition: 0.3s;
+}
+
+.mobile-menu-items.active {
+  transform: translateX(0);
+}
+
+.mobile-menu-list {
+  list-style: none;
+  padding: 50px;
+}
+
+.mobile-menu-list a {
+  color: white;
+  display: block;
+  margin: 20px 0;
+}
+
+/* HERO 🔥 */
 .hero {
+  height: calc(100vh - 75px);
+  overflow: hidden;
   position: relative;
-  height: 90vh;
-  margin-top: 0;
-  overflow : hidden;
-  margin-bottom: 30px;
 }
 
 .hero img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top;
+  object-position: center;
+
+  /* ⭐ 關鍵動畫 */
+  animation: heroZoom 8s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
 }
 
 .hero-text {
@@ -78,214 +123,99 @@ body {
   transform: translate(-50%, -50%);
   color: white;
   text-align: center;
-  z-index: 5;
+
+  /* ⭐ fade動畫 */
+  animation: fadeUp 1.5s ease;
 }
 
-.hero-text h2 {
-  font-size: 40px;
-  margin-bottom: 10px;
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -30%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
 }
 
-/* ===== Navbar ===== */
-.navbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  background: rgba(141, 174, 218, 0.5);
-  padding: 0 20px;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.navbar-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center !important;
-  height: 55px !important; 
-  width: 100%;
-}
-
-/* ======= Logo ======= */
-.logo {
-  height: 50px ! important;
-  width : auto !important;
-  object-fit: contain ! important;
-  max-height: 50px !important;
-}
-
-.logo-title {
-  height: auto ! important; 
-  display: flex !important;
-  align-items: center;
-  gap: 8px;
-}
-
-.site-title {
-  font-size : 25px;
-  color: darkblue;
-  line-height: 1.2 ! important;
-}
-
-
-/* ===== Desktop Menu ===== */
-.main-menu-list {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-  align-items: center;
-}
-
-.main-menu-list a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 8px 16px;
-  border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.2);
-  transition: background-color 0.3s ease;
-}
-
-.main-menu-list a:hover {
-  background-color: rgba(0, 51, 102, 0.9);
-}
-
-/* ===== Mobile Menu 容器 ===== */
-.mobile-menu {
-  position: relative;
-}
-
-/* ===== 漢堡包按鈕 ===== */
-.mobile-menu-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 30px;
-  height: 25px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  margin-left: 10px;
-}
-
-/* 漢堡包 → X 的動畫 */
-.mobile-menu-toggle.active .hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(8px, 8px);
-}
-
-.mobile-menu-toggle.active .hamburger-line:nth-child(2) {
-  opacity: 0;
-}
-
-.mobile-menu-toggle.active .hamburger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -7px);
-}
-
-/* ===== 手機選單（右側滑出）===== */
-.mobile-menu-items {
-  display: none;
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 80%;
-  max-width: 320px;
-  height: 100%;
-  background-color: rgba(0, 51, 102, 0.95);
-  backdrop-filter: blur(10px);
-  transform: translateX(100%);
-  transition: transform 0.3s ease;
-  z-index: 1000;
-  padding: 60px 20px 20px 20px;
-}
-
-.mobile-menu-items.active {
-  display: block;
-  transform: translateX(0);
-}
-
-.mobile-menu-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.mobile-menu-list li {
-  margin: 0;
-}
-
-.mobile-menu-list a {
-  display: block;
-  color: white;
-  text-align: center;
-  font-size: 20px;
-  padding: 15px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.mobile-menu-list a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  transform: translateX(10px);
-}
-
-/* Themes */
+/* Cards */
 .themes {
-display: grid;
-grid-template-columns: repeat(2,1fr);
-gap: 30px;
-padding-left: 90px;
-padding-right: 40px;
-
-
-
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 20px;
+  padding: 20px;
 }
 
 .theme-card {
-background: linear-gradient(135deg,#036,#059);
-color: white;
-padding: 40px;
-border-radius: 20px;
-max-width: 750px;
-
-
-opacity: 0;
-transform: translateY(50px);
-transition: 0.6s;
+  background: #036;
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  min-height: 320px;
+  display: flex;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.6s;
 }
 
+.theme-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  object-fit: cover;
+  height: 300px;
+}
+.card-info {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.theme-card h2 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.theme-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgb(255,255,255,0.9)
+}
 .theme-card.show {
-opacity: 1;
-transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.theme-card:hover {
-transform: scale(1.05);
-}
-
-
-
-.card {
-display: flex;
-gap: 25px;
-margin-bottom: 20px;
-}
-
-.card img {
-width: 150px;
-border-radius: 10px;
-}
 
 /* Mobile */
-@media (max-width:768px){
-.main-menu-list { display:none; }
-.mobile-menu-toggle { display:block; }
-.themes { grid-template-columns:1fr; }
-.card { flex-direction:column; }
+@media(max-width:768px){
+  .main-menu-list{
+    display:none;
+  }
+  .mobile-menu-toggle{
+    display:block;
+  }
+  .themes{
+    grid-template-columns:1fr;
+  }
+  .logo {
+    height: 30px;
+  }
+    .hero {
+      height: 60vh;
+    }
+    .theme-card img {
+      height: 140px;
+    }
+    .theme-card h2 {
+      font-size: 18px;
+    }
+    .theme-card p {
+      font-size: 14px;
+    }
 }
