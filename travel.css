@@ -200,6 +200,12 @@ body {
   gap: 20px;
   margin-bottom: 40px;
 }
+.country-text {
+  width: 100%;
+  height: 400px;
+  background: #cce0ff;
+  padding: 20px;
+}
 
 .country-row.reverse {
   flex-direction: row-reverse;
@@ -230,8 +236,9 @@ body {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  min-height: 200px;
 }
 
 .country-text h2 {
@@ -287,4 +294,8 @@ section {
     height: 40vh;
   }
   .hero-content h1 {font-size: 28px;
-  }}
+  }
+  .country-row {
+    flex-direction: column;
+  }
+}
