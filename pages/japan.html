@@ -49,8 +49,16 @@
 
   <!-- ===== Hero ===== -->
   <section class="hero">
-    <img src="./photo/japan-hero.png" class="hero-img">
-  </divz>
+
+<div class="hero-slider">
+    <div class="slide active">
+      <img src="./photo/japan-千本鳥居.png">
+    </div>
+    <div class="slide">
+      <img src="./photo/japan-hero.png">
+    </div>
+  </div>
+
     <div class="hero-content">
       <h1>京都 ~ 伏見稻荷大社 </h1>
       <p>Discover history, attractions, food, and transportation info</p>
@@ -121,14 +129,6 @@ const nav = document.querySelector(".navbar");
 nav.classList.toggle("scrolled", window.scrollY > 50);
 });
 
-/* Menu */
-const toggle = document.querySelector(".mobile-menu-toggle");
-const menu = document.querySelector(".mobile-menu-items");
-
-toggle.addEventListener("click", () => {
-menu.classList.toggle("active");
-toggle.classList.toggle("active");
-});
 
 /* Scroll 動畫 */
 const cards = document.querySelectorAll("[data-animate]");
@@ -149,6 +149,51 @@ const delay = entry.target.dataset.delay;
 }, { threshold: 0.2 });
 
 cards.forEach(card => observer.observe(card));
+
+
+// ===== Mobile Menu =====
+  const toggleButton = document.querySelector(".mobile-menu-toggle");
+  const mobileMenu = document.querySelector(".mobile-menu-items");
+
+  toggleButton.addEventListener("click", () => {
+    mobileMenu.classList.toggle("active");
+    toggleButton.classList.toggle("active");
+  });
+
+  document.querySelectorAll(".mobile-menu-list a").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("active");
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!mobileMenu.contains(e.target) && !toggleButton.contains(e.target)) {
+      mobileMenu.classList.remove("active");
+    }
+  });
+
+  // ===== ✅ Hero Slider（關鍵）=====
+  const slides = document.querySelectorAll(".slide");
+  let index = 0;
+
+  function showSlide(i) {
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[i].classList.add("active");
+  }
+
+  // 👉 先顯示第一張（保險）
+  showSlide(index);
+
+  // 👉 每3秒切換
+  setInterval(() => {
+    index = (index + 1) % slides.length;
+    showSlide(index);
+  }, 3000);
+
+</script>
+
+</body>
+</html>
 </script>
 </body>
 </html>
