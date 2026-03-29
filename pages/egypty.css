@@ -19,9 +19,17 @@ body {
   border-right: 1px solid #ddd;
   display: flex;
   flex-direction: column;
-  padding-top: 20px;
+  padding: 20px;
   justify-content: flex-start;
-  padding: 30px 20px;
+  padding-top: 30px !important;
+}
+.hero-section {
+  padding: 20px;
+  height: auto !important;
+  flex: none;
+} 
+.hero {
+  height: 50vh;
 }
 
 /* Logo */
@@ -36,12 +44,17 @@ body {
   gap: 10px;
   margin-bottom: 20px;
   font-size: 23px;
-  font-weight: bold;
+  font-weight: 700;
   color: blue;
   
 }
+
 .main-menu-list {
   list-style: none;
+}
+.main-menu-list li {
+  text-decoration: none;
+  color: blue;
 }
 .main-menu-list a {
   text-decoration: none;
@@ -50,18 +63,20 @@ body {
   font-weight: bold;
   display: block;
   padding: 10px 0;
+  transition: 0.3s;
 }
 .main-menu-list a:hover {
   color: blue
 }
+
+
+/* content */
 .main-content {
   margin-left: 280px;
   padding: 30px;
+  padding-top: 30px !important;
 }
-
-.hero-main {
-  position :relative
-} 
+/* hero */
 .hero-row {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -72,21 +87,12 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.8)
 }
-.hero-main::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.3);
-}
-
-.hero text {
-  position: absolute;
-  bottom: 30px;
-  left: 30px;
-  color: #fff;
-  z-index: 2; 
+.section {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px ;
+  margin-top: 20px;
 }
 .info-section {
   background: #fff;
@@ -142,7 +148,6 @@ flex: 0 0 300px;
   .body {
     margin: 0;
   }
-
   .top-nav {
     position: fixed;
     top: 0;
@@ -205,27 +210,6 @@ display: block;
 }
 .hero-main {
   height: 100%;
-  position: relative;
-}
-.hero-main::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.3);
-}
-.hero-text {
-  position: absolute;
-  bottom: 30px;
-  left: 30px;
-  color: #fff;
-  z-index: 2;
-}
-.hero-text h2 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-.hero-text p {
-  font-size: 18px;
 }
 .hero-side {
   display: flex;
@@ -251,7 +235,7 @@ display: block;
 }
 .info-img img {
   width: 100%;
-  height: 180px;
+  height: 260px;
 }
 .info-img {
   width: 100%;
