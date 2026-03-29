@@ -64,6 +64,7 @@ body {
   display: block;
   padding: 10px 0;
   transition: 0.3s;
+  margin-right: 50px;
 }
 .main-menu-list a:hover {
   color: blue
@@ -246,6 +247,7 @@ display: block;
 }
 .main-menu-list a {
   font-size: 25px;
+  margin-right: 50px;
   display: block;
 }
 .menu-btn {
