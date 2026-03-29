@@ -59,7 +59,7 @@ body {
 .main-menu-list a {
   text-decoration: none;
   color: blue;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: bold;
   display: block;
   padding: 10px 0;
@@ -245,7 +245,7 @@ display: block;
   text-align: center;
 }
 .main-menu-list a {
-  font-size: 18px;
+  font-size: 25px;
   display: block;
 }
 .menu-btn {
