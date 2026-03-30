@@ -390,7 +390,23 @@
 section {
   scroll-margin-top: 70px;
 }
+/* ===== Footer ===== */
+.footer {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: 60px;
+}
 
+.footer p {
+  margin-bottom: 10px;
+}
+
+.footer a {
+  color: #ffd700;
+  text-decoration: none;
+}
 /* Mobile */
 
 @media (max-width: 768px) {
