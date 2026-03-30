@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,9 +16,9 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <img src="../image/france-attractive.png" alt="hero">
+        <img src="../image/france-attractive.png" alt="hero" class="hero-img">
         <div class="hero-text">
-             <p>Explore Pairs -  Elegance, Culture and Adventure Await</p>
+            <p id ="type-text"></p>
             </div>
         
         <!-- Navbar -->
@@ -150,6 +150,35 @@
                 }
             });
         });
+    </script>
+    <script>
+        // 文字打字效果
+        const typeText = document.getElementById('type-text');
+        const texts = [
+        "Explore Pairs", 
+            "Culture and Adventure Await"];
+        let textIndex = 0;
+        let charIndex = 0;
+        let speed = 100;
+
+        function typeWriter() {
+            const currentText = texts[textIndex];
+            if (charIndex < currentText.length) {
+                typeText.innerHTML += currentText.charAt(charIndex);
+                charIndex++;
+
+                setTimeout(typeWriter, speed);
+            } else {
+                setTimeout(() => {
+                    typeText.innerHTML = '';
+                    charIndex = 0;
+                    textIndex = (textIndex + 1) % texts.length;
+                    typeWriter ();
+                }, 2000);
+            }
+        }
+
+        typeWriter();
     </script>
 </body>
 </html>

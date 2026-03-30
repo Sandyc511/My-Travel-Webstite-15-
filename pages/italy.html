@@ -49,12 +49,19 @@
 
 <!--  HERO -->
 <section class="hero">
-  <img src="../image/italy-hero-1.png">
+  <div class="hero-container">
+  <img src="../image/italy-hero-1.png" class="hero-img" id="img1">
+  <img src="../image/italy-hero-2.png" class="hero-img" id="img2">
+  <img src="../image/italy-hero-3.png" class="hero-img" id="img3">
+  </div>
   <div class="hero-text">
     <h1>Italy Travel</h1>
     <p>Explore Rome, Food & Culture</p>
   </div>
-</section>
+
+  
+  </section>
+  
 
 <!-- Themes -->
 <section class="themes">
@@ -145,6 +152,23 @@ const observer = new IntersectionObserver(entries => {
 
 cards.forEach(card => observer.observe(card));
 </script>
+<script>
+  const images = [
+  document.queryElementbyId(".hero-img1"),
+  document.queryElementbyId(".hero-img2"),
+  document.queryElementbyId(".hero-img3"),
+  ];
+  let current = 0;
+  function showNextImage() {
+    if (current<Image.length) {
+    images[current].style.opacity = 1; 
 
+      images[current].style.left = ´${current*33.33}%´;
+      current++;
+      setTimeout(showNextImage, 1000);
+    }
+  }
+  showNextImage();
+</script>
 </body>
 </html>

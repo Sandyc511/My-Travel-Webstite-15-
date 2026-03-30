@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>My-Travel-15</title>
@@ -34,18 +34,18 @@
       
  <section class="main-content">
   <div class="hero-row">
-    <div class="hero-main">
-      <img src="../image/egypt-hero-1.jpg" alt="主視覺" />
-    </div>
-    <div class="hero-side">
-  <div class="hero-side-item big">
-            <img src="../image/Egypt-hero-2.jpeg" alt="" />
+     <div class="hero-main">
+        <img id="hero-slider" src="../image/egypt-hero-1.jpg" />
+      </div>
+      <div class="hero-side">
+        <div class="hero-side-item">
+          <img class="hero-img" src="../image/Egypt-hero-2.jpeg" />
           </div>
-    <div class="hero-side-item">
-            <img src="../image/Egypt-hero-3.jpeg" alt="" />
+          <div class="hero-side-item">
+            <img class="hero-img" src="../image/Egypt-hero-3.jpeg" />
+          </div>
           </div>
         </div>
-      </div>
 
       <div class="hero-section">
         <h2>Pyramid- Mysterious World</h2>
@@ -136,6 +136,25 @@
       rootMargin: "0px 0px -50px 0px" });
 
   sections.forEach(sec => observer.observe(sec));
+</script>
+
+<script>
+const images =  [
+  "../image/egypt-hero-1.jpg",
+  "../image/Egypt-hero-2.jpeg",
+  "../image/Egypt-hero-3.jpeg"
+];  
+let index = 0;
+const slider = document.getElementById("hero-slider");
+setInterval(() => {
+  slider.style.opacity = 0;
+  setTimeout(() => {
+    index = (index + 1) % images.length;
+     slider.src = images[index];
+     slider.style.opacity = 1;
+  }, 400);
+  slider.src = images[index];
+}, 3000); 
 
 </script>
 </body>

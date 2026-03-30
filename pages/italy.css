@@ -209,13 +209,12 @@ body {
   /* ⭐ 關鍵動畫 */
   animation: heroZoom 8s ease-in-out infinite alternate;
 }
-
 @keyframes heroZoom {
   from {
     transform: scale(1);
   }
   to {
-    transform: scale(1.1);
+    transform: scale(1.2);
   }
 }
 
